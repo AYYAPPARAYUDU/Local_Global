@@ -1,0 +1,47 @@
+/* ---
+* StatCard.css - Final Stylesheet
+* --- */
+
+.stat-card {
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Prevent long text from overflowing */
+}
+
+.stat-card-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: #e9f5ff; /* Light blue background */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.stat-card-info {
+    min-width: 0; /* Fix for flexbox text overflow */
+}
+
+.stat-card-info .title {
+    font-size: 0.9rem;
+    color: var(--slate-gray);
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+}
+
+.stat-card-info .value {
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: var(--dark-navy);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ... if it's still too long */
+}

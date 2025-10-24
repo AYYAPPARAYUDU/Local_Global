@@ -1,0 +1,24 @@
+/* ---
+* DashboardLayout.css - Final Stylesheet for the Dashboard Layout
+* --- */
+
+.dashboard-page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background-light); /* A light background for the content area */
+}
+
+.dashboard-content {
+    flex-grow: 1; /* This makes the main content area take up all remaining space */
+    padding: 40px;
+    overflow-y: auto; /* Adds a scrollbar if the content is too long */
+}
+
+/* --- Responsive Adjustments for Smaller Screens --- */
+@media (max-width: 992px) {
+    /* On smaller screens, you might want to hide the sidebar or make it a toggleable menu. 
+       For now, we'll keep it simple, but this is where you would add that logic. */
+    .dashboard-content {
+        padding: 20px;
+    }
+}

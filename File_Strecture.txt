@@ -1,0 +1,109 @@
+
+Project Root: local-global-app/
+local-global-app/
+├── client/         // Your React front-end application
+└── server/         // Your Node.js back-end application
+
+
+
+
+
+
+1. Client-Side Structure (client/)
+client/
+├── public/
+│   ├── index.html     // The main HTML file
+│   └── ...            // Other public assets like logos
+│
+├── src/
+│   ├── components/    // Reusable components used across multiple pages
+│   │   ├── Card.js
+│   │   ├── Chat.js
+│   │   ├── Footer.js
+│   │   ├── Layout.js
+│   │   ├── Navbar.js
+│   │   ├── Spinner.js
+│   │   └── StoreCard.js
+│   │
+│   ├── context/       // Global state management
+│   │   ├── AuthContext.js
+│   │   └── CartContext.js
+│   │
+│   ├── data/          // Centralized mock data
+│   │   └── mockData.js
+│   │
+│   ├── hooks/         // Custom React hooks
+│   │   └── useAuth.js
+│   │
+│   ├── pages/         // The main pages of the website
+│   │   ├── dashboard/   // Shopkeeper dashboard pages
+│   │   │   ├── components/ // Reusable dashboard components
+│   │   │   │   ├── DashboardNav.js
+│   │   │   │   └── StatCard.js
+│   │   │   ├── Analytics.js
+│   │   │   ├── Dashboard.js
+│   │   │   ├── DashboardLayout.js
+│   │   │   ├── ManageProducts.js
+│   │   │   └── Orders.js
+│   │   │
+│   │   ├── About.js
+│   │   ├── Cart.js
+│   │   ├── Contact.js
+│   │   ├── Home.js
+│   │   ├── Login.js
+│   │   ├── MyOrders.js
+│   │   ├── PaymentPage.js
+│   │   ├── Products.js
+│   │   ├── ProductDetail.js
+│   │   ├── Profile.js
+│   │   └── SignUp.js
+│   │
+│   ├── services/      // API connection service
+│   │   └── api.js
+│   │
+│   ├── App.css        // The single, master stylesheet
+│   ├── App.js         // The main router for all pages
+│   └── index.js       // The entry point of the React app
+│
+└── package.json     // Manages front-end packages (React, Vite, etc.)
+
+
+
+/server
+├── .env                  # Environment variables (database URI, JWT secret, etc.)
+├── package.json          # Project dependencies and scripts
+├── server.js             # The main entry point for your server
+│
+├── /config
+│   └── db.js             # Database connection logic
+│
+├── /controllers
+│   ├── analyticsController.js
+│   ├── authController.js
+│   ├── chatController.js
+│   ├── dashboardController.js
+│   ├── orderController.js
+│   ├── productController.js
+│   └── userController.js
+│
+├── /middleware
+│   ├── authMiddleware.js   # 'protect' and 'isShopkeeper' functions
+│   └── uploadMiddleware.js   # Multer configuration for file uploads
+│
+├── /models
+│   ├── Conversation.js
+│   ├── Order.js
+│   ├── Product.js
+│   └── User.js
+│
+├── /routes
+│   ├── analyticsRoutes.js
+│   ├── authRoutes.js
+│   ├── chatRoutes.js
+│   ├── dashboardRoutes.js
+│   ├── orderRoutes.js
+│   ├── productRoutes.js
+│   └── userRoutes.js
+│
+└── /sockets
+    └── socketHandler.js    # Logic for real-time chat with Socket.IO

@@ -1,0 +1,115 @@
+/* ---
+* Dashboard.css - Final Stylesheet for the Shopkeeper Dashboard
+* --- */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Prevent long text from overflowing */
+}
+.stat-card-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background-color: #e9f5ff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+.stat-card-info .title {
+    font-size: 0.9rem;
+    color: var(--slate-gray);
+    margin-bottom: 0.25rem;
+}
+.stat-card-info .value {
+    font-size: 1.5rem; /* Slightly smaller font size */
+    font-weight: 700;
+    color: var(--dark-navy);
+    white-space: nowrap; /* Prevent number from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ... if it's still too long */
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.main-grid .grid-col-span-2 {
+    grid-column: span 2;
+}
+
+.info-panel {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+.info-panel h4 {
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: 1.5rem;
+}
+.table thead th {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--slate-gray);
+}
+.order-status {
+    padding: 0.25em 0.6em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+.status-processing { background-color: #fef3c7; color: #92400e; }
+.status-shipped { background-color: #dbeafe; color: #1e40af; }
+.status-delivered { background-color: #d1fae5; color: #065f46; }
+
+.low-stock-item, .message-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.low-stock-item:last-child, .message-item:last-child { border-bottom: none; }
+
+.stock-quantity { font-weight: 700; }
+.stock-warning { color: #f59e0b; }
+.stock-critical { color: var(--danger-color); }
+
+.message-item { position: relative; }
+.message-indicator {
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+.message-item p { margin: 0; }
+
+@media (max-width: 992px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .main-grid .grid-col-span-2 { grid-column: span 1; }
+}

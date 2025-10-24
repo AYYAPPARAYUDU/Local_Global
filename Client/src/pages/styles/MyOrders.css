@@ -1,0 +1,165 @@
+/* ---
+* MyOrders.css - Final, Advanced Stylesheet
+* --- */
+
+.orders-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--dark-navy), #2c3e50);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.order-accordion-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.order-accordion-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--box-shadow-md);
+}
+
+.order-summary-header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    gap: 1.5rem;
+    transition: background-color 0.2s ease;
+}
+.order-accordion-item:hover .order-summary-header {
+    background-color: #f8f9fa;
+}
+
+.order-info .label {
+    font-size: 0.8rem;
+    color: var(--slate-gray);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+.order-info .value {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.status-badge {
+    padding: 0.3rem 1rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.status-delivered { background-color: #d1fae5; color: #065f46; }
+.status-shipped { background-color: #cffafe; color: #0891b2; }
+.status-processing { background-color: #fef3c7; color: #92400e; }
+.status-cancelled { background-color: #fee2e2; color: #991b1b; }
+
+.order-details-body {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+}
+
+.order-product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.product-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+}
+.product-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: white;
+}
+.product-item .info {
+    flex-grow: 1;
+}
+.product-item .info p { margin: 0; }
+.btn {
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+.empty-orders-state {
+    text-align: center;
+    padding: 4rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.empty-orders-state svg {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* ---
+* NEW "ADVANCED" STYLES FOR CANCEL BUTTON
+* --- */
+.order-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-danger-outline {
+    background-color: transparent;
+    border: 1px solid var(--danger-color, #dc3545);
+    color: var(--danger-color, #dc3545);
+    padding: 0.25rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.btn-danger-outline:hover:not(:disabled) {
+    background-color: var(--danger-color, #dc3545);
+    color: white;
+}
+.btn-danger-outline:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-danger-outline .spinner {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+    border-top-color: var(--danger-color, #dc3545);
+    margin: 0;
+}

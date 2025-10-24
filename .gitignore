@@ -1,0 +1,13 @@
+# This is the final and correct .gitignore file
+
+# Ignore all node_modules folders in the entire project
+**/node_modules
+
+# Ignore all .env files (for security)
+**/.env
+
+# Ignore the React build folder (this is generated)
+/Client/dist
+
+# Ignore system files
+.DS_Store

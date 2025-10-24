@@ -1,0 +1,46 @@
+/* ---
+* Analytics.css - Final Stylesheet for the Analytics Page
+* --- */
+.chart-container {
+    background: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+.chart-container h4 {
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: 2rem;
+}
+.recharts-default-tooltip {
+    border-radius: 10px !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--box-shadow-md) !important;
+}
+.top-products-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.top-products-table th, .top-products-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.top-products-table th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--slate-gray);
+}
+.top-products-table .product-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.top-products-table img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}

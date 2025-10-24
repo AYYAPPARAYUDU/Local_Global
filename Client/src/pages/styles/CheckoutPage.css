@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #059669;
+    --primary-hover: #047857;
+    --background-color: #f9fafb;
+    --card-background: #ffffff;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+}
+
+.checkout-page {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    min-height: 100vh;
+}
+
+.checkout-header {
+    background: var(--card-background);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-header h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-dark);
+}
+
+/* --- Stepper (Now with 3 steps) --- */
+.stepper {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 2.5rem auto;
+}
+.stepper-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    flex: 1;
+    position: relative;
+}
+.stepper-item:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: 20px;
+    height: 3px;
+    width: 100%;
+    background: var(--border-color);
+    z-index: 0;
+}
+.stepper-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--border-color);
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.stepper-label {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.stepper-item.active .stepper-icon,
+.stepper-item.completed .stepper-icon {
+    border-color: var(--primary-color);
+}
+.stepper-item.active .stepper-label,
+.stepper-item.completed .stepper-label {
+    color: var(--primary-color);
+}
+.stepper-item.completed .stepper-icon {
+    background: var(--primary-color);
+    color: white;
+}
+.stepper-item.completed:not(:first-child)::before {
+    background: var(--primary-color);
+}
+
+/* --- Main Cards & Modal --- */
+.checkout-card {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+.card-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.address-card,
+.payment-method {
+    border: 2px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.address-card.selected,
+.payment-method.selected {
+    border-color: var(--primary-color);
+    background-color: #f0fdf4;
+}
+.order-summary {
+    position: sticky;
+    top: 2rem;
+}
+
+/* --- Buttons --- */
+.btn { border-radius: 8px; font-weight: 600; padding: 0.75rem 1.5rem; transition: all 0.2s ease; border: none; cursor: pointer; }
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover:not(:disabled) { background-color: var(--primary-hover); }
+.btn-primary:disabled { background-color: #d1d5db; cursor: not-allowed; }
+.btn-secondary { background-color: #e5e7eb; color: var(--text-dark); }
+.btn-light { background: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
+.btn-light:hover { background-color: #f3f4f6; }
+
+
+/* --- Address Modal --- */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); display: grid; place-items: center; z-index: 100; }
+.modal-content { background: white; padding: 2rem; border-radius: 16px; width: 90%; max-width: 500px; }
+.modal-header { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+.modal-body input,
+.modal-body select { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
+.form-row { display: flex; gap: 1rem; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
+
+/* --- Success Icon --- */
+.success-icon { width: 100px; height: 100px; display: block; margin: 0 auto 2rem; }
+.success-icon--circle { stroke-dasharray: 240; stroke-dashoffset: 240; stroke-width: 4; stroke: var(--primary-color); fill: none; animation: circle 1s ease-in-out forwards; }
+.success-icon--check { stroke-dasharray: 48; stroke-dashoffset: 48; stroke-width: 5; stroke: var(--primary-color); stroke-linecap: round; fill: none; animation: check 0.8s ease-in-out forwards 0.3s; }
+@keyframes circle { to { stroke-dashoffset: 0; } }
+@keyframes check { to { stroke-dashoffset: 0; } }
+
+/* --- Spinner --- */
+.spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; margin: 0 auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---
+* NEW "ADVANCED" CSS FOR QR CODE & UTR
+* --- */
+.payment-qr-container {
+    text-align: center;
+    padding-top: 1rem;
+}
+.payment-instructions {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+.qr-code-wrapper {
+    margin: 1rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.qr-code-wrapper img {
+    display: block;
+    width: 250px;
+    height: 250px;
+}
+.amount-to-pay {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 1rem 0 0.5rem 0;
+}
+.amount-to-pay strong {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+}
+.upi-id-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+.btn-confirm-payment {
+    background-color: var(--primary-color);
+    width: 100%;
+}
+
+/* --- NEW: UTR Input Field --- */
+.utr-input-group {
+    margin-top: 2rem;
+    text-align: left;
+}
+.utr-input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+.utr-input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+}
+.utr-input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+    outline: none;
+}
+

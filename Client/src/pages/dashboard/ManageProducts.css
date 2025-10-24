@@ -1,0 +1,256 @@
+/* ---
+* ManageProducts.css - Final Stylesheet
+* --- */
+
+/* --- Header & Controls --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+}
+.header-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.dashboard-search {
+    position: relative;
+}
+.dashboard-search .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--slate-gray);
+}
+.dashboard-search input {
+    padding: 10px 15px 10px 40px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    min-width: 250px;
+}
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600 !important;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- Product List (NEW DESIGN) --- */
+.product-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.product-list-item {
+    display: grid;
+    grid-template-columns: auto 1fr repeat(3, auto);
+    align-items: center;
+    gap: 1.5rem;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem;
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed);
+}
+.product-list-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-md);
+    border-color: var(--primary-color);
+}
+.product-list-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+    background: #fdfdfd;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+.product-list-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0;
+}
+.product-list-info p {
+    font-size: 0.9rem;
+    color: var(--slate-gray);
+    margin: 0;
+    text-transform: capitalize;
+}
+.list-item-price, .list-item-stock {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+.product-list-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+.product-list-actions button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+}
+.edit-btn { color: var(--slate-gray); }
+.edit-btn:hover { background-color: #e9f5ff; color: var(--primary-color); }
+.delete-btn { color: var(--slate-gray); }
+.delete-btn:hover { background-color: #ffeef0; color: var(--danger-color); }
+.no-products {
+    text-align: center;
+    color: var(--slate-gray);
+    padding: 3rem;
+    background: var(--white-color);
+    border-radius: var(--border-radius-lg);
+    margin-top: 2rem;
+}
+
+/* --- Modal Styles (Centered & Draggable) --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1040;
+}
+.product-modal {
+    position: fixed; /* Allow it to be dragged anywhere */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Start in the center */
+    background-color: var(--white-color);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    z-index: 1050;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.modal-header {
+    background-color: var(--dark-navy);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* --- THIS MAKES IT DRAGGABLE --- */
+    cursor: grab;
+}
+.modal-header:active {
+    cursor: grabbing;
+}
+.modal-header h3 {
+    font-weight: 600;
+    margin: 0;
+    color: var(--white-color);
+    font-size: 1.5rem;
+}
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    cursor: pointer;
+}
+.modal-body {
+    padding: 30px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.modal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+.modal-form label {
+    font-weight: 500;
+    color: var(--heading-color);
+}
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--heading-color);
+}
+.modal-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.file-input-wrapper {
+    position: relative;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* --- Pagination --- */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.pagination-container button {
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+.pagination-container button:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+.pagination-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.pagination-container .page-info {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
