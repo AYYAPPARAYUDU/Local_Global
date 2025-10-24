@@ -61,7 +61,28 @@ This project uses a modern, full-stack MERN architecture.
 
 To run this project on your local machine, you will need to run both the `server` and the `Client` in two separate terminals.
 
-### 1. Frontend (Client)
+### 1. Backend (Server)
+
+```bash
+# 1. Navigate to the server folder
+cd server
+
+# 2. Install all dependencies
+npm install
+
+# 3. Create a .env file
+# Create a new file named .env in the /server folder and add the following variables:
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_super_secret_jwt_key
+PORT=5000
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+# 4. Run the server
+npm run dev
+
+### 2. Frontend (Client)
 ```bash
 
 # 1. Open a new terminal and navigate to the Client folder
