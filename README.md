@@ -82,45 +82,5 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 # 4. Run the server
 npm run dev
 
-2. Frontend (Client)
-Bash
-
-# 1. Open a new terminal and navigate to the Client folder
-cd Client
-
-# 2. Install all dependencies
-npm install
-
-# 3. Create a .env file
-# Create a new file named .env in the /Client folder and add the following:
-VITE_API_URL=http://localhost:5000/api
-VITE_SOCKET_URL=http://localhost:5000
-
-# 4. Run the frontend app
-npm run dev
 
 
-Folder Structure
-The project is split into two main folders:
-
-/Local_Global
-│
-├── /Client
-│ ├── /src
-│ │ ├── /components  (Reusable components like Card, Chat, Map)
-│ │ ├── /context     (AuthContext, CartContext, LocationContext)
-│ │ ├── /hooks       (useAuth)
-│ │ ├── /pages       (All main pages: Home, Products, Checkout)
-│ │ └── /dashboard   (All shopkeeper pages: Dashboard, Orders, Analytics)
-│ ├── public/
-│ └── package.json
-│
-└── /server
-  ├── /controllers (The "brains" of the API logic)
-  ├── /middleware  (Security and upload logic)
-  ├── /models      (Database blueprints/schemas)
-  ├── /routes      (All API endpoints)
-  ├── /sockets     (Socket.IO chat logic)
-  ├── .env         (Your secret keys)
-  ├── server.js    (The main server file)
-  └── package.json
