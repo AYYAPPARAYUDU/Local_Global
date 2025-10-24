@@ -1,7 +1,12 @@
 import axios from 'axios';
 
+// --- THIS IS THE "SMART" UPGRADE ---
+// It checks if a live URL is provided by Vercel (VITE_API_URL)
+// If not, it falls back to your localhost for testing.
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: API_URL, // Use the smart URL
     headers: {
         'Content-Type': 'application/json',
     },

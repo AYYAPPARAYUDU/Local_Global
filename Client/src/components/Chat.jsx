@@ -4,9 +4,13 @@ import { FiSend } from 'react-icons/fi';
 import { useAuth } from '../hooks/useAuth';
 import io from 'socket.io-client';
 import apiService from '../services/api';
-import '../pages/styles/components/Chat.css';
+import './Chat.css'; // Make sure this path is correct
 
-const socket = io('http://localhost:5000');
+// --- THIS IS THE "SMART" UPGRADE ---
+// It checks for the live socket URL from Vercel (VITE_SOCKET_URL)
+// If not, it falls back to your localhost for testing.
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+const socket = io(SOCKET_URL);
 
 const Chat = ({ shopkeeper, product, onClose }) => {
     const { user: currentUser } = useAuth();
@@ -19,9 +23,10 @@ const Chat = ({ shopkeeper, product, onClose }) => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
+    // This useEffect hook is correct and final
     useEffect(() => {
         if (!shopkeeper?._id || !product?._id) return;
-
+        
         let currentConvId = null;
 
         const fetchConversation = async () => {
@@ -47,7 +52,6 @@ const Chat = ({ shopkeeper, product, onClose }) => {
                 setConversationId(currentConvId);
                 socket.emit('joinConversation', currentConvId);
             }
-            
             if (updatedConversation._id === currentConvId) {
                 setMessages(updatedConversation.messages);
             }
