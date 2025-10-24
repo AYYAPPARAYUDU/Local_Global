@@ -61,26 +61,49 @@ This project uses a modern, full-stack MERN architecture.
 
 To run this project on your local machine, you will need to run both the `server` and the `Client` in two separate terminals.
 
-### 1. Backend (Server)
-
+### 1. Frontend (Client)
 ```bash
-# 1. Navigate to the server folder
-cd server
+
+# 1. Open a new terminal and navigate to the Client folder
+cd Client
 
 # 2. Install all dependencies
 npm install
 
 # 3. Create a .env file
-# Create a new file named .env in the /server folder and add the following variables:
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_super_secret_jwt_key
-PORT=5000
-CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+# Create a new file named .env in the /Client folder and add the following:
+VITE_API_URL=http://localhost:5000/api
+VITE_SOCKET_URL=http://localhost:5000
 
-# 4. Run the server
+# 4. Run the frontend app
 npm run dev
 
+
+
+
+### Folder Structure
+The project is split into two main folders:
+
+/Local_Global
+│
+├── /Client
+│ ├── /src
+│ │ ├── /components  (Reusable components like Card, Chat, Map)
+│ │ ├── /context     (AuthContext, CartContext, LocationContext)
+│ │ ├── /hooks       (useAuth)
+│ │ ├── /pages       (All main pages: Home, Products, Checkout)
+│ │ └── /dashboard   (All shopkeeper pages: Dashboard, Orders, Analytics)
+│ ├── public/
+│ └── package.json
+│
+└── /server
+  ├── /controllers (The "brains" of the API logic)
+  ├── /middleware  (Security and upload logic)
+  ├── /models      (Database blueprints/schemas)
+  ├── /routes      (All API endpoints)
+  ├── /sockets     (Socket.IO chat logic)
+  ├── .env         (Your secret keys)
+  ├── server.js    (The main server file)
+  └── package.json
 
 
