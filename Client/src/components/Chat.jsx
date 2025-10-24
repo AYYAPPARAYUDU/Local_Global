@@ -4,7 +4,7 @@ import { FiSend } from 'react-icons/fi';
 import { useAuth } from '../hooks/useAuth';
 import io from 'socket.io-client';
 import apiService from '../services/api';
-import './Chat.css'; // Make sure this path is correct
+import '../pages/styles/components/Chat.css';
 
 // --- THIS IS THE "SMART" UPGRADE ---
 // It checks for the live socket URL from Vercel (VITE_SOCKET_URL)
